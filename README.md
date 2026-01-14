@@ -5,7 +5,11 @@
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="MIT License"/>
 </p>
 
-<h1 align="center">🥭 DurianType</h1>
+<h1 align="center">
+  <img src="src/resources/img/DurianMascot.png" alt="DurianType Mascot" width="100"/>
+  <br>
+  DurianType
+</h1>
 
 <p align="center">
   <strong>A Modern Typing Speed Test Application</strong><br>
@@ -22,9 +26,9 @@
 
 **DurianType** is a feature-rich typing speed test application developed as an **Object-Oriented Programming (OOP) Final Exam Project** for my **3rd semester** of college. It measures your typing speed (WPM), accuracy, and provides a weighted scoring system for fair competition.
 
-### 🥭 Why "DurianType"?
+### <img src="src/resources/img/DurianMascot.png" alt="Durian" width="25"/> Why "DurianType"?
 
-The name comes from my name **"Haldrian"** — the suffix **"drian"** sounds like **"durian"** (the iconic tropical fruit 🍈). Combined with "Type" for a typing test app, **DurianType** was born! The app's dark theme with green and golden yellow accents is also inspired by the durian fruit's colors.
+The name comes from my name **"Haldrian"** — the suffix **"drian"** sounds like **"durian"** (the iconic tropical fruit shown above). Combined with "Type" for a typing test app, **DurianType** was born! The app's dark theme with green and golden yellow accents is also inspired by the durian fruit's colors.
 
 ### ✨ Key Features
 
