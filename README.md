@@ -215,8 +215,8 @@ java --version
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/haldriansunata/duriantype.git
-cd duriantype
+git clone https://github.com/haldriansunata/DurianType.git
+cd DurianType
 ```
 
 ---
