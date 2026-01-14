@@ -24,7 +24,7 @@
 
 ## 📖 About
 
-**DurianType** is a feature-rich typing speed test application developed as an **Object-Oriented Programming (OOP) Final Exam Project** for my **3rd semester** of college. It measures your typing speed (WPM), accuracy, and provides a weighted scoring system for fair competition.
+**DurianType** is a feature-rich typing speed test application created as a final project for the Object-Oriented Programming (OOP) course in my third semester. It measures your typing speed (WPM), accuracy, and provides a weighted scoring system for fair competition.
 
 ### <img src="src/resources/img/DurianMascot.png" alt="Durian" width="25"/> Why "DurianType"?
 
