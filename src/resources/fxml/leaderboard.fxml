@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/17"
+      fx:controller="com.typingapp.controller.LeaderboardController"
+      alignment="CENTER" 
+      spacing="28"
+      styleClass="root"
+      minWidth="600"
+      minHeight="500"
+      prefWidth="1000"
+      prefHeight="700">
+
+    <padding>
+        <Insets top="40" right="60" bottom="40" left="60"/>
+    </padding>
+
+    <!-- Title - GOLDEN BOLD -->
+    <Label text="LEADERBOARD" styleClass="header-label" style="-fx-font-size: 64px; -fx-text-fill: #FFD54F; -fx-font-weight: 900;"/>
+
+    <!-- Filter Bar -->
+    <HBox spacing="18" alignment="CENTER">
+        <TextField fx:id="searchField" promptText="Search player..." prefWidth="240" minWidth="200" styleClass="text-field"/>
+        <ComboBox fx:id="timeFilterCombo" prefWidth="120" minWidth="110" styleClass="combo-box"/>
+        <ComboBox fx:id="languageFilterCombo" prefWidth="140" minWidth="130" promptText="Language" styleClass="combo-box"/>
+    </HBox>
+
+    <!-- TableView - Wrapped in Card Style -->
+    <VBox VBox.vgrow="ALWAYS" maxWidth="860" styleClass="card" style="-fx-padding: 20px;">
+        <TableView fx:id="leaderboardTable" VBox.vgrow="ALWAYS" minHeight="200" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="rankColumn" text="#" prefWidth="50" minWidth="40" styleClass="table-column-center"/>
+                <TableColumn fx:id="usernameColumn" text="Player" prefWidth="170" minWidth="120"/>
+                <TableColumn fx:id="languageColumn" text="Language" prefWidth="90" minWidth="80" styleClass="table-column-center"/>
+                <TableColumn fx:id="wpmColumn" text="WPM" prefWidth="70" minWidth="60" styleClass="table-column-center"/>
+                <TableColumn fx:id="accuracyColumn" text="Accuracy" prefWidth="80" minWidth="70" styleClass="table-column-center"/>
+                <TableColumn fx:id="dateColumn" text="Date" prefWidth="240" minWidth="220" styleClass="table-column-center"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+    </VBox>
+
+    <!-- Back Button - GOLDEN PRIMARY -->
+    <Button text="BACK TO MENU" onAction="#handleBackToMenu" styleClass="button-primary" prefWidth="220" minWidth="200" style="-fx-font-size: 17px;"/>
+
+</VBox>

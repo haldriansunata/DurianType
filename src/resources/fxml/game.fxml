@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="gameContainer"
+      xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/17"
+      fx:controller="com.typingapp.controller.GameController"
+      styleClass="root"
+      spacing="24"
+      alignment="CENTER"
+      onKeyTyped="#handleKeyTyped"
+      focusTraversable="true"
+      minWidth="700"
+      minHeight="500"
+      prefWidth="1200"
+      prefHeight="800">
+
+    <padding>
+        <Insets top="35" right="50" bottom="35" left="50"/>
+    </padding>
+
+    <!-- Stats Bar -->
+    <HBox spacing="24" alignment="CENTER">
+        
+        <!-- Timer Card -->
+        <VBox alignment="CENTER" spacing="8" styleClass="card" minWidth="240" prefWidth="260" style="-fx-padding: 18px 25px;">
+            <Label text="TIME" style="-fx-font-size: 15px; -fx-font-weight: 700; -fx-text-fill: #FFD54F;" />
+            <Label fx:id="timerLabel" text="30" style="-fx-font-size: 48px; -fx-font-weight: 900; -fx-text-fill: #FFFFFF;"/>
+        </VBox>
+        
+        <!-- WPM Card -->
+        <VBox alignment="CENTER" spacing="8" styleClass="card" minWidth="240" prefWidth="260" style="-fx-padding: 18px 25px;">
+            <Label text="WPM" style="-fx-font-size: 15px; -fx-font-weight: 700; -fx-text-fill: #FFD54F;" />
+            <Label fx:id="wpmLabel" text="0" style="-fx-font-size: 48px; -fx-font-weight: 900; -fx-text-fill: #FFFFFF;"/>
+        </VBox>
+        
+        <!-- Accuracy Card -->
+        <VBox alignment="CENTER" spacing="8" styleClass="card" minWidth="240" prefWidth="260" style="-fx-padding: 18px 25px;">
+            <Label text="ACCURACY" style="-fx-font-size: 15px; -fx-font-weight: 700; -fx-text-fill: #FFD54F;" />
+            <Label fx:id="accuracyLabel" text="100%" style="-fx-font-size: 48px; -fx-font-weight: 900; -fx-text-fill: #FFFFFF;"/>
+        </VBox>
+        
+    </HBox>
+
+    <!-- Text Display Area - RESTRICTED WIDTH & HEIGHT -->
+    <VBox alignment="TOP_LEFT" maxWidth="900" prefHeight="450" styleClass="card" style="-fx-padding: 25px; -fx-background-color: #2B1810;">
+        <ScrollPane fx:id="gameScrollPane"
+                    VBox.vgrow="ALWAYS"
+                    fitToWidth="true"
+                    fitToHeight="false"
+                    hbarPolicy="NEVER"
+                    vbarPolicy="AS_NEEDED"
+                    style="-fx-background-color: #2B1810; -fx-background: #2B1810;">
+            <TextFlow fx:id="textDisplay"
+                      textAlignment="LEFT"
+                      lineSpacing="12"
+                      styleClass="text-flow"
+                      style="-fx-background-color: #2B1810;">
+                <padding>
+                    <Insets top="15" right="20" bottom="15" left="20"/>
+                </padding>
+            </TextFlow>
+        </ScrollPane>
+    </VBox>
+
+    <!-- Control Button -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button fx:id="btnGiveUp"
+                text="GIVE UP"
+                onAction="#handleGiveUp"
+                styleClass="button-danger"
+                prefWidth="200"
+                style="-fx-font-size: 16px;"
+                minWidth="180"/>
+    </HBox>
+
+</VBox>

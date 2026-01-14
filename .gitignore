@@ -1,0 +1,26 @@
+# Compiled class files
+bin/
+*.class
+
+# Database file (generated at runtime)
+*.db
+
+# Dependencies (users download separately - see README)
+lib/
+
+# VS Code (optional - keep for project sharing)
+# .vscode/
+
+# IDE files
+*.iml
+.idea/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.bak

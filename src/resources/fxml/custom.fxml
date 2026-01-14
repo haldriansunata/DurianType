@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" 
+      minHeight="400" 
+      minWidth="600" 
+      prefHeight="700" 
+      prefWidth="900" 
+      spacing="28" 
+      styleClass="root" 
+      xmlns="http://javafx.com/javafx/17.0.12" 
+      xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.typingapp.controller.CustomController">
+
+    <padding>
+        <Insets bottom="40" left="60" right="60" top="40" />
+    </padding>
+
+    <!-- Header - GOLDEN BOLD -->
+    <Label styleClass="header-label" text="CUSTOM MODE" style="-fx-font-size: 64px; -fx-text-fill: #FFD54F; -fx-font-weight: 900;" />
+
+    <Label styleClass="subtitle-label" text="Enter your own text to practice typing" style="-fx-font-size: 18px;" />
+
+    <!-- Custom Text Input Area - Card Style -->
+    <VBox alignment="CENTER" maxWidth="800" spacing="18" VBox.vgrow="ALWAYS" styleClass="card" style="-fx-padding: 30px;">
+        <Label styleClass="section-title" text="YOUR CUSTOM TEXT" style="-fx-font-size: 24px;" />
+
+        <TextArea fx:id="customTextArea" 
+                  minHeight="220" 
+                  prefHeight="320" 
+                  promptText="Type or paste your custom text here... (minimum 10 words)" 
+                  styleClass="text-area" 
+                  wrapText="true" 
+                  VBox.vgrow="ALWAYS" />
+
+        <Label fx:id="wordCountLabel" styleClass="info-label" text="Words: 0" style="-fx-font-size: 14px;" />
+    </VBox>
+
+    <!-- Action Buttons -->
+    <HBox alignment="CENTER" spacing="24">
+        <Button onAction="#handleStartGame" minWidth="220" prefWidth="240" styleClass="button-primary" text="START GAME" style="-fx-font-size: 17px;" />
+
+        <Button onAction="#handleBackToMenu" minWidth="220" prefWidth="240" styleClass="button-primary" text="BACK TO MENU" style="-fx-font-size: 17px;" />
+    </HBox>
+
+    <!-- Info Label -->
+    <Label styleClass="info-label" text="Note: Scores in Custom Mode are not saved to the leaderboard" style="-fx-font-size: 14px;" />
+
+</VBox>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" minHeight="400" minWidth="500" prefHeight="750" prefWidth="900" spacing="20" styleClass="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.typingapp.controller.LoginController">
+
+    <padding>
+        <Insets bottom="50" left="60" right="60" top="50" />
+    </padding>
+
+    <!-- Spacer -->
+    <Region VBox.vgrow="SOMETIMES" />
+    
+    <!-- Title Section - Centered -->
+    <VBox alignment="CENTER" spacing="16">
+        <VBox.margin>
+            <Insets bottom="30" />
+        </VBox.margin>
+        <Label fx:id="loginJudul" styleClass="header-label" text="DurianType" style="-fx-font-size: 88px; -fx-text-fill: #FFD54F; -fx-font-weight: 900;" />
+        <Label fx:id="myts" styleClass="subtitle-label" text="Master your typing speed in a cozy environment" style="-fx-font-size: 18px;" />
+    </VBox>
+
+    <!-- Login Form Card - CENTERED -->
+    <VBox alignment="CENTER" spacing="22" maxWidth="480" styleClass="card">
+        
+        <Label text="LOGIN" styleClass="section-title" style="-fx-font-size: 32px; -fx-font-weight: 900; -fx-text-fill: #FFD54F;" />
+
+        <TextField fx:id="usernameField" minWidth="200" prefWidth="400" promptText="Username" style="-fx-font-size: 16px;" />
+
+        <PasswordField fx:id="passwordField" minWidth="200" prefWidth="400" promptText="Password" style="-fx-font-size: 16px;" />
+
+        <!-- Buttons Row -->
+        <HBox alignment="CENTER" spacing="14">
+            <Button minWidth="190" onAction="#handleLogin" prefWidth="195" styleClass="button-primary" text="LOGIN" style="-fx-font-size: 16px;" />
+            <Button minWidth="190" onAction="#handleRegister" prefWidth="195" styleClass="button-secondary" text="REGISTER" style="-fx-font-size: 16px;" />
+        </HBox>
+
+        <!-- Separator -->
+        <Separator prefWidth="360">
+            <VBox.margin>
+                <Insets bottom="6" top="12" />
+            </VBox.margin>
+        </Separator>
+
+        <Label styleClass="info-label" text="or" style="-fx-font-size: 14px;" />
+
+        <Button minWidth="400" onAction="#handlePlayAsGuest" prefWidth="400" styleClass="button-secondary" text="PLAY AS GUEST" style="-fx-font-size: 16px;" />
+        
+    </VBox>
+
+    <!-- Spacer -->
+    <Region VBox.vgrow="SOMETIMES" />
+
+    <!-- Footer - CENTERED properly -->
+    <VBox alignment="CENTER" spacing="0">
+        <Label styleClass="info-label" text="Create an account to save your progress and track your improvement over time" textAlignment="CENTER" wrapText="true" alignment="CENTER" style="-fx-font-size: 13px;" />
+    </VBox>
+
+</VBox>
