@@ -45,31 +45,81 @@ The name comes from my name **"Haldrian"** — the suffix **"drian"** sounds lik
 
 ---
 
-## 🖼️ Screenshots
+## 🖼️ User Interface Tour
 
-<details>
-<summary>Click to expand screenshots</summary>
+### 🔑 Login & Main Menu
+<table align="center">
+  <tr>
+    <td align="center" width="50%">
+      <img src="src/resources/img/login_register.png" alt="Login Screen" width="100%"/>
+      <br>
+      <b>Login / Register</b><br>
+      Secure entry point. Features account creation for saving history and scores. Includes a <b>Guest Mode</b> for quick, instant access without registration.
+    </td>
+    <td align="center" width="50%">
+      <img src="src/resources/img/menu.png" alt="Main Menu" width="100%"/>
+      <br>
+      <b>Main Menu</b><br>
+      The application hub. Allows seamless selection of <b>Time Modes</b> (15s, 30s, 60s) and <b>Language</b> (English/Indonesia). Provides quick navigation to all other features.
+    </td>
+  </tr>
+</table>
 
-### Login Screen
-- Clean login/register interface
-- Guest mode for quick practice
+### ⚡ Typing Experience
+<table align="center">
+  <tr>
+    <td align="center" width="50%">
+      <img src="src/resources/img/play(starttimemode).png" alt="Game UI" width="100%"/>
+      <br>
+      <b>Typing Interface</b><br>
+      Core gameplay area with real-time feedback. <br>
+      • <b>Green/Red Highlighting</b>: Instant visual feedback.<br>
+      • <b>Live Stats</b>: Tracks WPM and Accuracy as you type.<br>
+      • <b>Infinite Scroll</b>: Words refresh automatically (Logic handled by <code>GameController</code> batching system).
+    </td>
+    <td align="center" width="50%">
+      <img src="src/resources/img/result.png" alt="Results" width="100%"/>
+      <br>
+      <b>Results Summary</b><br>
+      Comprehensive post-game statistics. Displays <b>Net WPM</b>, <b>Gross WPM</b>, and calculates a <b>Weighted Score</b> for the leaderboard.
+    </td>
+  </tr>
+</table>
 
-### Main Menu  
-- Time mode selection (15s / 30s / 60s)
-- Language selection (English / Indonesia)
-- Quick access to Leaderboard, Profile, Custom Mode
+### 📊 Statistics & Competition
+<table align="center">
+  <tr>
+    <td align="center" width="50%">
+      <img src="src/resources/img/leaderboard.png" alt="Leaderboard" width="100%"/>
+      <br>
+      <b>Global Leaderboard</b><br>
+      Competitive rankings powered by SQLite.<br>
+      • <b>Filtering</b>: Sort by Time Mode and Language.<br>
+      • <b>Search</b>: Find specific users by name.<br>
+      • <b>Rankings</b>: Automatic sorting by Weighted Score.
+    </td>
+    <td align="center" width="50%">
+      <img src="src/resources/img/profile.png" alt="Profile" width="100%"/>
+      <br>
+      <b>User Profile & Account Management</b><br>
+      Complete user dashboard.<br>
+      • <b>History Tracker</b>: View detailed history of all attempts.<br>
+      • <b>Profile Update</b>: Change Username and Password.<br>
+      • <b>History Filter</b>: Filter past games by Language (Eng/Ind).<br>
+      • <b>Delete Account</b>: Permanent account deletion option with confirmation.
+    </td>
+  </tr>
+</table>
 
-### Typing Game
-- Real-time character highlighting (green=correct, red=wrong)
-- Live WPM and accuracy calculation
-- Smooth infinite scroll word batching
-
-### Leaderboard
-- Filter by time mode and language
-- Search by username
-- Ranked by weighted score
-
-</details>
+### ✏️ Custom Mode (Sandbox)
+<div align="center">
+  <img src="src/resources/img/custom_mode.png" alt="Custom Mode Setup" width="45%"/>
+  <img src="src/resources/img/custom_mode_play.png" alt="Custom Mode Play" width="45%"/>
+  <br>
+  <b>Custom Text Practice</b><br>
+  A dedicated sandbox mode. Paste your own text into the text area to practice specific paragraphs. 
+  <br><i>Features infinite time (Timer shows ∞) and sequential text flow without shuffling.</i>
+</div>
 
 ---
 
@@ -412,10 +462,35 @@ CREATE TABLE scores (
 );
 ```
 
+
 ---
 
-## 🤖 AI-Assisted Development
+## 🛠️ Developer Guide
 
+### 💾 CRUD Operations
+The application implements standard CRUD operations via `DatabaseHelper.java`:
+- **CREATE**: `addUser()` (Register), `addScore()` (End Game).
+- **READ**: `loginUser()`, `getLeaderboard()`, `getHistory()`.
+- **UPDATE**: `updateUser()` (Profile: change username/password).
+- **DELETE**: `deleteUser()` (Available in Profile settings).
+
+### 📝 Customizing Word Lists
+Words are stored in flat text files inside `src/resources/data/`.
+1. Open `src/resources/data/words_en.txt` (or `_id.txt`).
+2. Add, remove, or edit words directly (space-separated or newlines).
+3. **No rebuild required!** The app reads these files at runtime via `MenuController.loadWords()`.
+
+### 🌍 Adding a New Language
+To add support for a new language (e.g., "Spanish"):
+1. **Create file**: Add `words_es.txt` in `src/resources/data/`.
+2. **Update Constants**: Add `public static final String LANG_SPANISH = "Spanish";` in `Constants.java`.
+3. **Update MenuController**:
+   - Add language to ComboBox: `languageCombo.getItems().add(Constants.LANG_SPANISH);`
+   - Update `handlePlayTimeMode()` to load the new file:
+     ```java
+     String filename = selectedLanguage.equals(Constants.LANG_SPANISH) ? "words_es.txt" : ...
+     ```
+4. **Update Profile & Leaderboard**: Ensure filters in `ProfileController` and `LeaderboardController` include the new language option.
 <p align="center">
   <img src="https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white" alt="Google Gemini"/>
   <img src="https://img.shields.io/badge/Claude%20AI-D4A168?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude AI"/>
